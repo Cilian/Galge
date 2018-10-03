@@ -1,4 +1,4 @@
-package galgeleg;
+package com.example.sren.galge;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,6 @@
-package galgeleg;
+package com.example.sren.galge;
+
+import com.example.sren.galge.Galgelogik;
 
 public class BenytGalgelogik {
 
