@@ -21,11 +21,12 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/options"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:background="@drawable/roundcorners"
+        android:onClick="ChangeFrag"
         android:text="Indstillinger"
         android:textColor="#E5E2E2"
         android:textStyle="bold"
@@ -34,9 +35,13 @@
         app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <fragment
-        android:name=".PropFragment"
         android:id="@+id/prop"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:name=".PropFragment"
+        android:layout_width="250dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="119dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
