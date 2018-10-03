@@ -4,6 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/androidmobile"
     tools:context=".GameActivity">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="600dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="84dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/rectangle3" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="325dp"
+        android:layout_height="63dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/rectangle5" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="300dp"
+        android:layout_height="102dp"
+        android:layout_marginBottom="100dp"
+        android:background="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="160dp"
+        android:layout_height="229dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.602"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/galge"
+        tools:layout_editor_absoluteY="300dp" />
 
 </android.support.constraint.ConstraintLayout>
