@@ -1,26 +1,21 @@
 package com.example.sren.galge;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-import android.app.Fragment;
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.widget.Button;
-import android.app.DialogFragment;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.View.OnClickListener;
-import android.widget.Button;
+
 
 import static android.view.Window.FEATURE_NO_TITLE;
 
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btn;
+    Button option;
+    Button start;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +28,37 @@ public class MenuActivity extends AppCompatActivity {
     final FragmentManager fm = getFragmentManager();
     final PropFragment n = new PropFragment();
 
-    btn = findViewById(R.id.options);
-    btn.setOnClickListener(new View.OnClickListener() {
+    start = findViewById(R.id.start);
+    start.setOnClickListener(this);
+
+    option = findViewById(R.id.options);
+    option.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             n.show(fm,"Indstillinger");
         }
     });
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v == start){
+            start.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openGame();
+                }
+            });
+        }
+    }
+
+
+    public void openGame(){
+    Intent intent = new Intent(this, GameActivity.class);
+    startActivity(intent);
 
     }
+
 /*
    public void ChangeFrag(View view){
     Fragment fragment;
