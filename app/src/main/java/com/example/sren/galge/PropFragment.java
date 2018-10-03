@@ -1,22 +1,36 @@
 package com.example.sren.galge;
 
-import android.content.Context;
-import android.net.Uri;
+import android.app.DialogFragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 
-public class PropFragment extends Fragment {
+public class PropFragment extends DialogFragment {
 
+    Button btn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_prop, container, false);
+
+        View rootView=inflater.inflate(R.layout.properties,container,false);
+
+        //getDialog().setTitle("Indstillinger");
+
+        btn = rootView.findViewById(R.id.dismiss);
+        btn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dismiss();
+            }
+        });
+
+        return rootView;
     }
 
 }
