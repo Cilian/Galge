@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,7 +14,7 @@ import static android.view.Window.FEATURE_NO_TITLE;
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
     Galgelogik spil = new Galgelogik();
-    TextView word;
+    TextView word, won, lost;
     Button B,T,K,A,E,V,J,U,F,H,I,S,Re,L,O,N,M,Y,P,G,D,C;
     ImageView fail,fail1,fail2,fail3,fail4,fail5,fail6;
 
@@ -30,6 +31,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         word = findViewById(R.id.word);
         word.setText(spil.getSynligtOrd());
+
+        won = findViewById(R.id.Won);
+        lost = findViewById(R.id.Lost);
 
         B = findViewById(R.id.B);
         B.setOnClickListener(this);
@@ -87,162 +91,184 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if(v == B){
+        if (v == B) {
             spil.gætBogstav("b");
             word.setText(spil.getSynligtOrd());
             B.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        } else if(v == T){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == T) {
             spil.gætBogstav("t");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            T.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        }else if(v == K){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == K) {
             spil.gætBogstav("k");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            K.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        }else if(v == A){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == A) {
             spil.gætBogstav("a");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            A.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        }else if(v == E){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == E) {
             spil.gætBogstav("e");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            E.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        }else if(v == V){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == V) {
             spil.gætBogstav("v");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            V.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        }else if(v == J){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == J) {
             spil.gætBogstav("j");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            J.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        }else if(v == U){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == U) {
             spil.gætBogstav("u");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            U.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        }else if(v == F){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == F) {
             spil.gætBogstav("f");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            F.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        }else if(v == H){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == H) {
             spil.gætBogstav("h");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            H.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        }else if(v == I){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == I) {
             spil.gætBogstav("i");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            I.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        }else if(v == S){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == S) {
             spil.gætBogstav("s");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            S.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        }else if(v == Re){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == Re) {
             spil.gætBogstav("r");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            Re.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        }else if(v == L){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == L) {
             spil.gætBogstav("l");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            L.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        }else if(v == O){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == O) {
             spil.gætBogstav("o");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            O.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        } else if(v == N){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == N) {
             spil.gætBogstav("n");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            N.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        } else if(v == M){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == M) {
             spil.gætBogstav("m");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            M.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        } else if(v == Y){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == Y) {
             spil.gætBogstav("y");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            Y.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        } else if(v == P){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == P) {
             spil.gætBogstav("p");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            P.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        } else if(v == G){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == G) {
             spil.gætBogstav("g");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            G.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        } else if(v == D){
+            if (spil.erSpilletSlut()) { end(); return;}
+        } else if (v == D) {
             spil.gætBogstav("d");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            D.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
-        } else if(v == C){
+            if (spil.erSpilletSlut()){ { end(); return;}}
+        } else if (v == C) {
             spil.gætBogstav("c");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
-            B.setVisibility(View.INVISIBLE);
+            C.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) return;
+            if (spil.erSpilletSlut()) { end(); return;}
         }
-
     }
+        public void end () {
+            if (spil.erSpilletVundet()) {
+                won.setVisibility(View.VISIBLE);
+                TranslateAnimation animation = new TranslateAnimation(0.0f, 0.0f, -800.0f, 0.0f); // new TranslateAnimation (float fromXDelta,float toXDelta, float fromYDelta, float toYDelta)
+
+                animation.setDuration(1400); // animation duration, change accordingly
+                animation.setRepeatCount(0); // animation repeat count
+                animation.setFillAfter(false);
+                won.startAnimation(animation);//your_view for which you need animation
+            }
+
+            if (spil.erSpilletTabt()) {
+            lost.setVisibility(View.VISIBLE);
+                TranslateAnimation animation = new TranslateAnimation(0.0f, 0.0f, -800.0f, 0.0f); // new TranslateAnimation (float fromXDelta,float toXDelta, float fromYDelta, float toYDelta)
+
+                animation.setDuration(1400); // animation duration, change accordingly
+                animation.setRepeatCount(0); // animation repeat count
+                animation.setFillAfter(false);
+            lost.startAnimation(animation);
+            }
+        }
+    
+        
     public void updateFail(){
         switch(spil.getAntalForkerteBogstaver()){
             case 1:
@@ -263,9 +289,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             case 6:
                 fail.setImageResource(R.drawable.forkert6);
                 break;
-
-
         }
     }
+
 
 }
