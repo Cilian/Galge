@@ -1,12 +1,16 @@
 package com.example.sren.galge;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import static android.view.Window.FEATURE_NO_TITLE;
@@ -14,9 +18,10 @@ import static android.view.Window.FEATURE_NO_TITLE;
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
     Galgelogik spil = new Galgelogik();
-    TextView word, won, lost;
+    TextView word;
     Button B,T,K,A,E,V,J,U,F,H,I,S,Re,L,O,N,M,Y,P,G,D,C;
     ImageView fail,fail1,fail2,fail3,fail4,fail5,fail6;
+    TableLayout buttons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +37,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         word = findViewById(R.id.word);
         word.setText(spil.getSynligtOrd());
 
-        won = findViewById(R.id.Won);
-        lost = findViewById(R.id.Lost);
+        buttons = findViewById(R.id.buttons);
 
         B = findViewById(R.id.B);
         B.setOnClickListener(this);
@@ -248,23 +252,32 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
         public void end () {
             if (spil.erSpilletVundet()) {
-                won.setVisibility(View.VISIBLE);
+
                 TranslateAnimation animation = new TranslateAnimation(0.0f, 0.0f, -800.0f, 0.0f); // new TranslateAnimation (float fromXDelta,float toXDelta, float fromYDelta, float toYDelta)
 
                 animation.setDuration(1400); // animation duration, change accordingly
                 animation.setRepeatCount(0); // animation repeat count
                 animation.setFillAfter(false);
-                won.startAnimation(animation);//your_view for which you need animation
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                fragmentTransaction.setCustomAnimations(R.anim.slide_down_in,R.anim.slide_up_out);
+
+                Restart fragment = new Restart();
+
+                fragmentTransaction.add(R.id.games_layout,fragment);
+                fragmentTransaction.commit();
+                buttons.setVisibility(View.INVISIBLE);
             }
 
             if (spil.erSpilletTabt()) {
-            lost.setVisibility(View.VISIBLE);
                 TranslateAnimation animation = new TranslateAnimation(0.0f, 0.0f, -800.0f, 0.0f); // new TranslateAnimation (float fromXDelta,float toXDelta, float fromYDelta, float toYDelta)
 
                 animation.setDuration(1400); // animation duration, change accordingly
                 animation.setRepeatCount(0); // animation repeat count
                 animation.setFillAfter(false);
-            lost.startAnimation(animation);
+
             }
         }
     
