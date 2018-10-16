@@ -1,6 +1,7 @@
 package com.example.sren.galge;
 
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TableLayout;
@@ -22,6 +24,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     Button B,T,K,A,E,V,J,U,F,H,I,S,Re,L,O,N,M,Y,P,G,D,C;
     ImageView fail,fail1,fail2,fail3,fail4,fail5,fail6;
     TableLayout buttons;
+
+    ConstraintLayout frag;
+    Button rest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         word.setText(spil.getSynligtOrd());
 
         buttons = findViewById(R.id.buttons);
+        rest = (Button) findViewById(R.id.restart);
 
         B = findViewById(R.id.B);
         B.setOnClickListener(this);
@@ -248,6 +254,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             C.setVisibility(View.INVISIBLE);
             updateFail();
             if (spil.erSpilletSlut()) { end(); return;}
+        }
+
+        if(v == rest){
+            spil.nulstil();
+            buttons.setVisibility(View.VISIBLE);
+
         }
     }
         public void end () {
