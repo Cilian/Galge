@@ -14,8 +14,7 @@ public class PropFragment extends DialogFragment {
     Button btn;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView=inflater.inflate(R.layout.properties,container,false);
 
