@@ -1,5 +1,6 @@
 package com.example.sren.galge;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.FragmentManager;
@@ -15,11 +16,14 @@ import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import static android.view.Window.FEATURE_NO_TITLE;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
     Galgelogik spil = new Galgelogik();
+
     TextView word;
     Button B,T,K,A,E,V,J,U,F,H,I,S,Re,L,O,N,M,Y,P,G,D,C;
     ImageView fail,fail1,fail2,fail3,fail4,fail5,fail6;
@@ -27,6 +31,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     ConstraintLayout frag;
     Button rest;
+    Boolean win = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +48,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         word.setText(spil.getSynligtOrd());
 
         buttons = findViewById(R.id.buttons);
-        rest = (Button) findViewById(R.id.restart);
+    //    rest = (Button) findViewById(R.id.restart);
+     //   rest.setOnClickListener(this);
 
         B = findViewById(R.id.B);
         B.setOnClickListener(this);
@@ -257,6 +263,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if(v == rest){
+            System.out.println("Du har trykket på restart fra activity");
             spil.nulstil();
             buttons.setVisibility(View.VISIBLE);
 
@@ -264,7 +271,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
         public void end () {
             if (spil.erSpilletVundet()) {
-
+                setWin(true);
+                System.out.println("tester " +getWin());
                 TranslateAnimation animation = new TranslateAnimation(0.0f, 0.0f, -800.0f, 0.0f); // new TranslateAnimation (float fromXDelta,float toXDelta, float fromYDelta, float toYDelta)
 
                 animation.setDuration(1400); // animation duration, change accordingly
@@ -276,11 +284,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
                 fragmentTransaction.setCustomAnimations(R.anim.slide_down_in,R.anim.slide_up_out);
 
-                Restart fragment = new Restart();
 
-                fragmentTransaction.add(R.id.games_layout,fragment);
+                Restart res = new Restart();
+                fragmentTransaction.add(R.id.games_layout,res);
                 fragmentTransaction.commit();
                 buttons.setVisibility(View.INVISIBLE);
+
+
+                System.out.println("Heløjsa" + spil.erSpilletVundet());
+
             }
 
             if (spil.erSpilletTabt()) {
@@ -290,10 +302,36 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 animation.setRepeatCount(0); // animation repeat count
                 animation.setFillAfter(false);
 
+/*
+                Restart fragment_obj = (Restart) getSupportFragmentManager().
+                        findFragmentById(R.id.msg);
+*/
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                fragmentTransaction.setCustomAnimations(R.anim.slide_down_in,R.anim.slide_up_out);
+
+                Restart res = new Restart();
+                fragmentTransaction.add(R.id.games_layout,res);
+                fragmentTransaction.commit();
+                buttons.setVisibility(View.INVISIBLE);
+
+                TextView msg = (TextView) findViewById(R.id.msg);
+
+                Restart restart_frag = new Restart();
+                FragmentManager manager = getSupportFragmentManager();
+                manager.beginTransaction().replace(R.id.games_layout, restart_frag).commit();
+
+                System.out.println("Heløjsa2" + spil.erSpilletTabt());
+
+
+
+               // getFragmentManager().findFragmentById(R.id.msg);
+                //((TextView) res.getView().findViewById(R.id.textView)).setText("Du tabte!");
             }
         }
-    
-        
+
+
     public void updateFail(){
         switch(spil.getAntalForkerteBogstaver()){
             case 1:
@@ -321,4 +359,17 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     protected void onDestroy() {
         super.onDestroy();
     }
+
+    public Boolean checkWin (Boolean w){
+        System.out.println("inde i Check" + spil.erSpilletVundet());
+        return spil.erSpilletVundet();
+    }
+
+    public Boolean getWin(){
+        return win;
+    }
+    public void setWin(Boolean v){
+        win = v;
+    }
+
 }
