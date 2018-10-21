@@ -1,6 +1,5 @@
 package com.example.sren.galge;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.FragmentManager;
@@ -16,8 +15,6 @@ import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import static android.view.Window.FEATURE_NO_TITLE;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
@@ -29,16 +26,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     ImageView fail,fail1,fail2,fail3,fail4,fail5,fail6;
     TableLayout buttons;
 
-    ConstraintLayout frag;
-    Button rest;
-    Boolean win = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(FEATURE_NO_TITLE);
         setContentView(R.layout.activity_game);
-
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
@@ -48,8 +40,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         word.setText(spil.getSynligtOrd());
 
         buttons = findViewById(R.id.buttons);
-    //    rest = (Button) findViewById(R.id.restart);
-     //   rest.setOnClickListener(this);
 
         B = findViewById(R.id.B);
         B.setOnClickListener(this);
@@ -96,13 +86,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         C = findViewById(R.id.C);
         C.setOnClickListener(this);
 
-    fail = findViewById(R.id.fail);
-    fail1 = findViewById(R.id.fail1);
-    fail2 = findViewById(R.id.fail2);
-    fail3 = findViewById(R.id.fail3);
-    fail4 = findViewById(R.id.fail4);
-    fail5 = findViewById(R.id.fail5);
-    fail6 = findViewById(R.id.fail6);
+        fail = findViewById(R.id.fail);
+        fail1 = findViewById(R.id.fail1);
+        fail2 = findViewById(R.id.fail2);
+        fail3 = findViewById(R.id.fail3);
+        fail4 = findViewById(R.id.fail4);
+        fail5 = findViewById(R.id.fail5);
+        fail6 = findViewById(R.id.fail6);
     }
 
     @Override
@@ -112,225 +102,175 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             word.setText(spil.getSynligtOrd());
             B.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == T) {
             spil.gætBogstav("t");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             T.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == K) {
             spil.gætBogstav("k");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             K.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == A) {
             spil.gætBogstav("a");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             A.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == E) {
             spil.gætBogstav("e");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             E.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == V) {
             spil.gætBogstav("v");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             V.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == J) {
             spil.gætBogstav("j");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             J.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == U) {
             spil.gætBogstav("u");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             U.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == F) {
             spil.gætBogstav("f");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             F.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == H) {
             spil.gætBogstav("h");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             H.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == I) {
             spil.gætBogstav("i");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             I.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == S) {
             spil.gætBogstav("s");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             S.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == Re) {
             spil.gætBogstav("r");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             Re.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == L) {
             spil.gætBogstav("l");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             L.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == O) {
             spil.gætBogstav("o");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             O.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == N) {
             spil.gætBogstav("n");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             N.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == M) {
             spil.gætBogstav("m");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             M.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == Y) {
             spil.gætBogstav("y");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             Y.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == P) {
             spil.gætBogstav("p");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             P.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == G) {
             spil.gætBogstav("g");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             G.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         } else if (v == D) {
             spil.gætBogstav("d");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             D.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()){ { end(); return;}}
+            if (spil.erSpilletSlut()){ { end();}}
         } else if (v == C) {
             spil.gætBogstav("c");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             C.setVisibility(View.INVISIBLE);
             updateFail();
-            if (spil.erSpilletSlut()) { end(); return;}
+            if (spil.erSpilletSlut()) { end();}
         }
 
-        if(v == rest){
-            System.out.println("Du har trykket på restart fra activity");
-            spil.nulstil();
-            buttons.setVisibility(View.VISIBLE);
-
-        }
     }
-        public void end () {
-            if (spil.erSpilletVundet()) {
-                setWin(true);
-                System.out.println("tester " +getWin());
-                TranslateAnimation animation = new TranslateAnimation(0.0f, 0.0f, -800.0f, 0.0f); // new TranslateAnimation (float fromXDelta,float toXDelta, float fromYDelta, float toYDelta)
+    public void end () {
+        TranslateAnimation animation = new TranslateAnimation(0.0f, 0.0f, -800.0f, 0.0f); // new TranslateAnimation (float fromXDelta,float toXDelta, float fromYDelta, float toYDelta)
 
-                animation.setDuration(1400); // animation duration, change accordingly
-                animation.setRepeatCount(0); // animation repeat count
-                animation.setFillAfter(false);
+        animation.setDuration(1400); // animation duration, change accordingly
+        animation.setRepeatCount(0); // animation repeat count
+        animation.setFillAfter(false);
 
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-                fragmentTransaction.setCustomAnimations(R.anim.slide_down_in,R.anim.slide_up_out);
+        fragmentTransaction.setCustomAnimations(R.anim.slide_down_in,R.anim.slide_up_out);
 
+        Restart fragment = new Restart();
 
-                Restart res = new Restart();
-                fragmentTransaction.add(R.id.games_layout,res);
-                fragmentTransaction.commit();
-                buttons.setVisibility(View.INVISIBLE);
-
-
-                System.out.println("Heløjsa" + spil.erSpilletVundet());
-
-            }
-
-            if (spil.erSpilletTabt()) {
-                TranslateAnimation animation = new TranslateAnimation(0.0f, 0.0f, -800.0f, 0.0f); // new TranslateAnimation (float fromXDelta,float toXDelta, float fromYDelta, float toYDelta)
-
-                animation.setDuration(1400); // animation duration, change accordingly
-                animation.setRepeatCount(0); // animation repeat count
-                animation.setFillAfter(false);
-
-/*
-                Restart fragment_obj = (Restart) getSupportFragmentManager().
-                        findFragmentById(R.id.msg);
-*/
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-                fragmentTransaction.setCustomAnimations(R.anim.slide_down_in,R.anim.slide_up_out);
-
-                Restart res = new Restart();
-                fragmentTransaction.add(R.id.games_layout,res);
-                fragmentTransaction.commit();
-                buttons.setVisibility(View.INVISIBLE);
-
-                TextView msg = (TextView) findViewById(R.id.msg);
-
-                Restart restart_frag = new Restart();
-                FragmentManager manager = getSupportFragmentManager();
-                manager.beginTransaction().replace(R.id.games_layout, restart_frag).commit();
-
-                System.out.println("Heløjsa2" + spil.erSpilletTabt());
-
-
-
-               // getFragmentManager().findFragmentById(R.id.msg);
-                //((TextView) res.getView().findViewById(R.id.textView)).setText("Du tabte!");
-            }
-        }
-
+        fragmentTransaction.add(R.id.games_layout,fragment);
+        fragmentTransaction.commit();
+        buttons.setVisibility(View.INVISIBLE);
+    }
 
     public void updateFail(){
         switch(spil.getAntalForkerteBogstaver()){
@@ -355,21 +295,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    public Boolean getWinner(){
+        return spil.erSpilletVundet();
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
     }
-
-    public Boolean checkWin (Boolean w){
-        System.out.println("inde i Check" + spil.erSpilletVundet());
-        return spil.erSpilletVundet();
-    }
-
-    public Boolean getWin(){
-        return win;
-    }
-    public void setWin(Boolean v){
-        win = v;
-    }
-
 }
