@@ -25,6 +25,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     Button B,T,K,A,E,V,J,U,F,H,I,S,Re,L,O,N,M,Y,P,G,D,C;
     ImageView fail,fail1,fail2,fail3,fail4,fail5,fail6;
     TableLayout buttons;
+    TextView myScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         word = findViewById(R.id.word);
         word.setText(spil.getSynligtOrd());
+
+        myScore = findViewById(R.id.point);
 
         buttons = findViewById(R.id.buttons);
 
@@ -101,154 +104,154 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             spil.gætBogstav("b");
             word.setText(spil.getSynligtOrd());
             B.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == T) {
             spil.gætBogstav("t");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             T.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == K) {
             spil.gætBogstav("k");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             K.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == A) {
             spil.gætBogstav("a");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             A.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == E) {
             spil.gætBogstav("e");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             E.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == V) {
             spil.gætBogstav("v");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             V.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == J) {
             spil.gætBogstav("j");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             J.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == U) {
             spil.gætBogstav("u");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             U.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == F) {
             spil.gætBogstav("f");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             F.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == H) {
             spil.gætBogstav("h");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             H.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == I) {
             spil.gætBogstav("i");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             I.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == S) {
             spil.gætBogstav("s");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             S.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == Re) {
             spil.gætBogstav("r");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             Re.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == L) {
             spil.gætBogstav("l");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             L.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == O) {
             spil.gætBogstav("o");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             O.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == N) {
             spil.gætBogstav("n");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             N.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == M) {
             spil.gætBogstav("m");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             M.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == Y) {
             spil.gætBogstav("y");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             Y.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == P) {
             spil.gætBogstav("p");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             P.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == G) {
             spil.gætBogstav("g");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             G.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         } else if (v == D) {
             spil.gætBogstav("d");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             D.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()){ { end();}}
         } else if (v == C) {
             spil.gætBogstav("c");
             spil.logStatus();
             word.setText(spil.getSynligtOrd());
             C.setVisibility(View.INVISIBLE);
-            updateFail();
+            updateUI();
             if (spil.erSpilletSlut()) { end();}
         }
 
@@ -272,7 +275,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         buttons.setVisibility(View.INVISIBLE);
     }
 
-    public void updateFail(){
+    public void updateUI(){
+
+        myScore.setText("" + spil.getPoint());
+
         switch(spil.getAntalForkerteBogstaver()){
             case 1:
                 fail.setImageResource(R.drawable.forkert1);
@@ -295,12 +301,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    //Used to determine winner or loser message in Restart fragment
     public Boolean getWinner(){
+
         return spil.erSpilletVundet();
+
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
 }

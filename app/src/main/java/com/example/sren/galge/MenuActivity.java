@@ -15,8 +15,7 @@ import static android.view.Window.FEATURE_NO_TITLE;
 
 public class MenuActivity extends Activity implements View.OnClickListener{
 
-    Button option;
-    Button start;
+    Button option, start, highscore;
     TextView galge1,galge2,leg1,leg2;
 
     final ScaleAnimation growAnim = new ScaleAnimation(1.0f, 1.08f, 1.0f, 1.08f, Animation.RELATIVE_TO_SELF, 0.5F, Animation.RELATIVE_TO_SELF, 0.5F);
@@ -35,21 +34,29 @@ protected void onCreate(Bundle savedInstanceState){
         final FragmentManager fm = getFragmentManager();
         final PropFragment n = new PropFragment();
 
+
+
         start = findViewById(R.id.start);
         start.setOnClickListener(this);
+
+        option = findViewById(R.id.options);
+        option.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick(View v){
+            n.show(fm,"Indstillinger");
+        }
+    });
+
+        highscore = findViewById(R.id.highscore);
+        highscore.setOnClickListener(this);
+
 
         galge1 = findViewById(R.id.galge1);
         galge2 = findViewById(R.id.galge2);
         leg1 = findViewById(R.id.leg1);
         leg2 = findViewById(R.id.leg2);
 
-        option = findViewById(R.id.options);
-        option.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                n.show(fm,"Indstillinger");
-            }
-        });
+
 
 
     growAnim.setDuration(2000);
@@ -106,10 +113,16 @@ public void onClick(View v){
         if(v==start){
             openGame();
         }
+        if(v == highscore){
+            openScores();
+        }
 }
         public void openGame(){
-        Intent intent = new Intent(this,GameActivity.class);
-        startActivity(intent);
-
+            Intent intent = new Intent(this,GameActivity.class);
+            startActivity(intent);
+        }
+        public void openScores(){
+            Intent intent = new Intent(this,Highscore.class);
+            startActivity(intent);
         }
 }

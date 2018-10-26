@@ -1,5 +1,6 @@
 package com.example.sren.galge;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -11,14 +12,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-public class Restart extends DialogFragment {
-
-    //  Button restart;
-    Galgelogik spil = new Galgelogik();
-    GameActivity game = new GameActivity();
+public class Restart extends Fragment {
     Button restart;
     TextView msg;
-
+    TextView finalScore;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,13 +24,10 @@ public class Restart extends DialogFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
-        //    restart = getView().findViewById(R.id.restart);
-        //    restart.setOnClickListener(this);
         View rootView=inflater.inflate(R.layout.fragment_restart,container,false);
 
-        GameActivity activity = (GameActivity) getActivity();
+        GameActivity activity = (GameActivity)  getActivity();
         Boolean winner = activity.getWinner();
 
         msg = rootView.findViewById(R.id.msg);
@@ -43,6 +37,12 @@ public class Restart extends DialogFragment {
         else
             msg.setText("Du tabte!");
 
+        finalScore = rootView.findViewById(R.id.finalScore);
+        finalScore.setText("" + activity.spil.getPoint());
+
+        SharedPreferences pref = activity.getApplicationContext().getSharedPreferences("Highscores", 0); // 0 - for private mode
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putInt("currentScore", activity.spil.getPoint()).commit();
 
         restart = rootView.findViewById(R.id.restart);
         restart.setOnClickListener(new View.OnClickListener() {
