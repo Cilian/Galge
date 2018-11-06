@@ -59,8 +59,8 @@ protected void onCreate(Bundle savedInstanceState){
 
 
 
-    growAnim.setDuration(2000);
-    shrinkAnim.setDuration(2000);
+    growAnim.setDuration(1500);
+    shrinkAnim.setDuration(1500);
 
    // Animation grow = AnimationUtils.loadAnimation(this, R.anim.scale);
 
@@ -125,4 +125,14 @@ public void onClick(View v){
             Intent intent = new Intent(this,Highscore.class);
             startActivity(intent);
         }
+
+
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() > 0) {
+            getFragmentManager().popBackStack();
+        } else {
+            super.onBackPressed();
+        }
+    }
 }
