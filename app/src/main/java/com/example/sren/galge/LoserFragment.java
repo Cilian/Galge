@@ -23,13 +23,14 @@ public class LoserFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        String ordet = getArguments().getString("ordet");
+
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_loser, container, false);
         final GameActivity activity = (GameActivity) getActivity();
         word = rootView.findViewById(R.id.word);
-        word.setText("" + activity.spil.getOrdet());
+        word.setText(ordet);
 
         restart = rootView.findViewById(R.id.restart);
         restart.setOnClickListener(new View.OnClickListener() {

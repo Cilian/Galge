@@ -80,15 +80,22 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void end () {
         if(getWinner()){
-        Restart fragment = new Restart();
-        animationFragment(fragment);
+            Bundle bundle = new Bundle();
+            bundle.putString("score", String.valueOf(spil.getPoint()));
+            bundle.putString("fejl", String.valueOf(spil.getAntalForkerteBogstaver()));
+            Restart fragment = new Restart();
+            fragment.setArguments(bundle);
+            animationFragment(fragment);
+
     } else if(!getWinner()) {
-        LoserFragment fragment = new LoserFragment();
-        animationFragment(fragment);
+            Bundle bundle = new Bundle();
+            bundle.putString("ordet", String.valueOf(spil.getOrdet()));
+            LoserFragment fragment = new LoserFragment();
+            fragment.setArguments(bundle);
+            animationFragment(fragment);
+
         }
     }
-
-
 
     public void updateImage(){
 

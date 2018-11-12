@@ -40,7 +40,6 @@ public class Highscore extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highscore);
 
-
         scores = (ListView) findViewById(R.id.list);
 
         loadUser();

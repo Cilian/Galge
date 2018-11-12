@@ -35,6 +35,8 @@ public class Restart extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        String score = getArguments().getString("score");
+        String antal_fejl = getArguments().getString("fejl");
 
         View rootView=inflater.inflate(R.layout.fragment_restart,container,false);
 
@@ -49,8 +51,8 @@ public class Restart extends Fragment {
         finalScore = rootView.findViewById(R.id.finalScore);
         dinScore = rootView.findViewById(R.id.dinScore);
 
-        finalScore.setText("" + activity.spil.getPoint());
-        fejl.setText("" + activity.spil.getAntalForkerteBogstaver());
+        finalScore.setText(score);
+        fejl.setText(antal_fejl);
 
 
         SharedPreferences pref = getActivity().getApplicationContext().getSharedPreferences("Highscores", 0); // 0 - for private mode
