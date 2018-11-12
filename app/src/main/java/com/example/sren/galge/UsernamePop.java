@@ -18,7 +18,6 @@ public class UsernamePop extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -29,7 +28,6 @@ public class UsernamePop extends Fragment implements View.OnClickListener {
         send.setOnClickListener(this);
 
         return rootView;
-
 
     }
 

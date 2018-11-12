@@ -32,7 +32,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     Galgelogik spil = new Galgelogik();
 
     TextView word;
-    Button B,T,K,A,E,V,J,U,F,H,I,S,Re,L,O,N,M,Y,P,G,D,C;
     ImageView fail,fail1,fail2,fail3,fail4,fail5,fail6;
     TableLayout buttons;
     TextView myScore;
@@ -55,51 +54,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         buttons = findViewById(R.id.buttons);
 
-        B = findViewById(R.id.B);
-        B.setOnClickListener(this);
-        T = findViewById(R.id.T);
-        T.setOnClickListener(this);
-        K = findViewById(R.id.K);
-        K.setOnClickListener(this);
-        A = findViewById(R.id.A);
-        A.setOnClickListener(this);
-        E = findViewById(R.id.E);
-        E.setOnClickListener(this);
-        V = findViewById(R.id.V);
-        V.setOnClickListener(this);
-        J = findViewById(R.id.J);
-        J.setOnClickListener(this);
-        U = findViewById(R.id.U);
-        U.setOnClickListener(this);
-        F = findViewById(R.id.F);
-        F.setOnClickListener(this);
-        H = findViewById(R.id.H);
-        H.setOnClickListener(this);
-        I = findViewById(R.id.I);
-        I.setOnClickListener(this);
-        S = findViewById(R.id.S);
-        S.setOnClickListener(this);
-        Re = findViewById(R.id.Re);
-        Re.setOnClickListener(this);
-        L = findViewById(R.id.L);
-        L.setOnClickListener(this);
-        O = findViewById(R.id.O);
-        O.setOnClickListener(this);
-        N = findViewById(R.id.N);
-        N.setOnClickListener(this);
-        M = findViewById(R.id.M);
-        M.setOnClickListener(this);
-        Y = findViewById(R.id.Y);
-        Y.setOnClickListener(this);
-        P = findViewById(R.id.P);
-        P.setOnClickListener(this);
-        G = findViewById(R.id.G);
-        G.setOnClickListener(this);
-        D = findViewById(R.id.D);
-        D.setOnClickListener(this);
-        C = findViewById(R.id.C);
-        C.setOnClickListener(this);
-
         fail = findViewById(R.id.fail);
         fail1 = findViewById(R.id.fail1);
         fail2 = findViewById(R.id.fail2);
@@ -107,121 +61,20 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         fail4 = findViewById(R.id.fail4);
         fail5 = findViewById(R.id.fail5);
         fail6 = findViewById(R.id.fail6);
-
     }
 
     @Override
     public void onClick(View v) {
-        if (v == B) {
-            spil.gætBogstav("b");
-            B.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == T) {
-            spil.gætBogstav("t");
-            T.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == K) {
-            spil.gætBogstav("k");
-            K.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == A) {
-            spil.gætBogstav("a");
-            A.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == E) {
-            spil.gætBogstav("e");
-            E.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == V) {
-            spil.gætBogstav("v");
-            V.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == J) {
-            spil.gætBogstav("j");
-            J.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == U) {
-            spil.gætBogstav("u");
-            U.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == F) {
-            spil.gætBogstav("f");
-            F.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == H) {
-            spil.gætBogstav("h");
-            H.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == I) {
-            spil.gætBogstav("i");
-            I.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == S) {
-            spil.gætBogstav("s");
-            S.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == Re) {
-            spil.gætBogstav("r");
-            Re.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == L) {
-            spil.gætBogstav("l");
-            L.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == O) {
-            spil.gætBogstav("o");
-            O.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == N) {
-            spil.gætBogstav("n");
-            N.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == M) {
-            spil.gætBogstav("m");
-            M.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == Y) {
-            spil.gætBogstav("y");
-            Y.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == P) {
-            spil.gætBogstav("p");
-            P.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == G) {
-            spil.gætBogstav("g");
-            G.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
-        } else if (v == D) {
-            spil.gætBogstav("d");
-            D.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()){ { end();}}
-        } else if (v == C) {
-            spil.gætBogstav("c");
-            C.setVisibility(View.INVISIBLE);
-            updateUI();
-            if (spil.erSpilletSlut()) { end();}
+        String btnText = ((Button)v).getText().toString().toLowerCase();
+
+        spil.logStatus();
+        spil.gætBogstav(btnText);
+        v.setVisibility(View.INVISIBLE);
+        word.setText(spil.getSynligtOrd());
+        System.out.println(btnText);
+        updateImage();
+        if(spil.erSpilletSlut()){
+            end();
         }
 
     }
@@ -263,12 +116,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void updateUI(){
-        spil.logStatus();
-        word.setText(spil.getSynligtOrd());
-        updateImage();
-    }
-
 
     //Used to determine winner or loser message in Restart fragment
     public Boolean getWinner(){
@@ -291,7 +138,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         fragmentTransaction.commit();
         buttons.setVisibility(View.INVISIBLE);
     }
-
 
 
 }
