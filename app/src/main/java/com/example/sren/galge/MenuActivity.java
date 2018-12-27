@@ -122,7 +122,7 @@ public void onClick(View v){
             startActivity(intent);
         }
         public void openScores(){
-            Intent intent = new Intent(this,Highscore.class);
+            Intent intent = new Intent(this,loading.class);
             startActivity(intent);
         }
 

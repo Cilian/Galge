@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.SyncStatusObserver;
 import android.graphics.Color;
+import android.icu.text.SymbolTable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -58,11 +60,17 @@ public class Highscore extends Activity {
 
     public void loadUser(){
         SharedPreferences sharedPreferences = getSharedPreferences("highscore", MODE_PRIVATE);
+        String text = sharedPreferences.getString("U",null);
+
         Gson gson = new Gson();
         String json = sharedPreferences.getString("list",null);
+
         Type type = new TypeToken<ArrayList<UserScore>>() {}.getType();
         users = gson.fromJson(json,type);
 
+        if(users == null){
+            System.out.println("Shared is null");
+            users = new ArrayList<>();
+        }
     }
-
 }
