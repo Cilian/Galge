@@ -5,6 +5,8 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -17,7 +19,7 @@ import static android.view.Window.FEATURE_NO_TITLE;
 
 public class MenuActivity extends Activity implements View.OnClickListener{
 
-    Button option, start, highscore;
+    Button option, start, highscore,custom;
     TextView galge1,galge2,leg1,leg2, preparing, wait;
     ProgressBar progressBar;
 
@@ -57,6 +59,9 @@ protected void onCreate(Bundle savedInstanceState){
 
         highscore = findViewById(R.id.highscore);
         highscore.setOnClickListener(this);
+
+        custom = findViewById(R.id.custom);
+        custom.setOnClickListener(this);
 
         galge1 = findViewById(R.id.galge1);
         galge2 = findViewById(R.id.galge2);
@@ -121,7 +126,22 @@ public void onClick(View v){
         if(v == highscore){
             openScores();
         }
+        if(v == custom){
+            openCustom();
+        }
 }
+
+        public void openCustom() {
+            Intent intent = new Intent(this, ListOfWordsFragment.class);
+            startActivity(intent);
+  /*          ListOfWordsFragment frag = new ListOfWordsFragment();
+
+            FragmentManager fragmentManager = getFragmentManager();
+            android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+            fragmentTransaction.add(R.id.games_layout, frag);
+            fragmentTransaction.commit();*/
+        }
 
         public void openScores(){
             Intent intent = new Intent(this,Highscore.class);

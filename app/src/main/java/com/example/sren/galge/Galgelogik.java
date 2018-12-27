@@ -10,6 +10,8 @@ import java.util.HashSet;
 import java.util.Random;
 
 public class Galgelogik {
+
+
   /** AHT afprøvning er muligeOrd synlig på pakkeniveau */
   ArrayList<String> muligeOrd = new ArrayList<String>();
   private String ordet;
@@ -170,4 +172,14 @@ public class Galgelogik {
   public int getPoint() {
     return point;
   }
+
+  public ArrayList<String> getMuligeOrd() {
+    return muligeOrd;
+  }
+
+  public void setMuligeOrd(ArrayList<String> muligeOrd) {
+    this.muligeOrd = muligeOrd;
+  }
+
 }
+
