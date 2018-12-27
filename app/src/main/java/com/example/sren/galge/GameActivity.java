@@ -1,6 +1,7 @@
 package com.example.sren.galge;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
@@ -146,5 +147,14 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         buttons.setVisibility(View.INVISIBLE);
     }
 
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() > 0) {
+            getFragmentManager().popBackStack();
+        } else {
+            super.onBackPressed();
+        }
+        startActivity(new Intent(this, MenuActivity.class));
+    }
 
 }

@@ -21,7 +21,6 @@ public class MenuActivity extends Activity implements View.OnClickListener{
     TextView galge1,galge2,leg1,leg2, preparing, wait;
     ProgressBar progressBar;
 
-    TextView txt;
     Integer count =1;
 
      ScaleAnimation growAnim = new ScaleAnimation(1.0f, 1.08f, 1.0f, 1.08f, Animation.RELATIVE_TO_SELF, 0.5F, Animation.RELATIVE_TO_SELF, 0.5F);
@@ -137,21 +136,27 @@ public void onClick(View v){
             wait.setVisibility(View.VISIBLE);
             preparing.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.VISIBLE);
-            new MyTask().execute(70);
-
+            new MyTask().execute(25);
         }
+
+    public void openGame(){
+        Intent intent = new Intent(this,GameActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
     class MyTask extends AsyncTask<Integer, Integer, String> {
         @Override
         protected String doInBackground(Integer... params) {
             for (; count <= params[0]; count++) {
                 try {
-                    Thread.sleep(20);
+                    Thread.sleep(40);
                     publishProgress(count);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
+            openGame();
             return "Task Completed.";
         }
         @Override

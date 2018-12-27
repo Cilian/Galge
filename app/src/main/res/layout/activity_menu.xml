@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="416dp"
         android:indeterminate="false"
-        android:max="70"
+        android:max="25"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
