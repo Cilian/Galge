@@ -25,6 +25,7 @@ public class MyListOfWordsRecyclerViewAdapter extends RecyclerView.Adapter<MyLis
     Context mContext;
     ConstraintLayout itemHolder;
     TextView number,word;
+    ArrayList<String> words = new ArrayList<String>();
 
     public MyListOfWordsRecyclerViewAdapter(Context mContext, ArrayList<String> items) {
         this.mContext = mContext;

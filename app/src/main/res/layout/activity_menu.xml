@@ -55,7 +55,7 @@
         android:id="@+id/start"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="300dp"
+        android:layout_marginBottom="332dp"
         android:background="@drawable/roundcorners_white"
         android:text="Start"
         android:textColor="#E5E2E2"
@@ -63,13 +63,15 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/custom"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="372dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="232dp"
         android:background="@drawable/roundcorners_white"
         android:text="Vælg ord"
         android:textColor="#E5E2E2"
@@ -77,8 +79,8 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start" />
 
     <Button
         android:id="@+id/options"
@@ -92,7 +94,7 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/start" />
+        app:layout_constraintTop_toBottomOf="@+id/custom" />
 
     <Button
         android:id="@+id/highscore"

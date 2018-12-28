@@ -26,8 +26,6 @@ public class ListOfWordsFragment extends Activity {
     ArrayList<String> words = new ArrayList<String>();
 
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +48,4 @@ public class ListOfWordsFragment extends Activity {
         //RecyclerView recyclerView = (RecyclerView) ;
         list.setAdapter(new MyListOfWordsRecyclerViewAdapter(this, words));
     }
-
-
 }
