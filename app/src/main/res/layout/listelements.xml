@@ -6,13 +6,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.skydoves.medal.MedalLayout
+        android:layout_width="61dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_weight="1"
+        android:foregroundGravity="center"
+        app:direction="right"
+        app:layout_constraintEnd_toStartOf="@+id/second"
+        app:layout_constraintTop_toTopOf="parent"
+        app:speed="1500"
+        app:turn="1">
+
+        <ImageView
+            android:id="@+id/first"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
+            android:foregroundGravity="center"
+            app:layout_constraintEnd_toStartOf="@+id/second"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/medal2" />
+    </com.skydoves.medal.MedalLayout>
+
     <TextView
         android:id="@+id/second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="110dp"
         android:layout_marginLeft="110dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:foregroundGravity="center_horizontal|center"
         android:gravity="center_horizontal|center"
         android:text="TextView"
@@ -25,7 +50,7 @@
         android:id="@+id/third"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="110dp"
         android:layout_marginRight="110dp"
         android:text="TextView"
@@ -33,5 +58,15 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/third"
+        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -75,7 +75,7 @@ public class Restart extends Fragment {
                 int point = activity.spil.getPoint();
 
                 loadUser();
-                users.add(new UserScore(username, point));
+                users.add(new UserScore(null, username, point));
                 saveUser();
                 getActivity().onBackPressed();
             }
@@ -99,6 +99,9 @@ public class Restart extends Fragment {
         String json = sharedPreferences.getString("list",null);
         Type type = new TypeToken<ArrayList<UserScore>>() {}.getType();
         users = gson.fromJson(json,type);
-
+        if(users == null){
+            System.out.println("Shared is null");
+            users = new ArrayList<>();
+        }
     }
 }

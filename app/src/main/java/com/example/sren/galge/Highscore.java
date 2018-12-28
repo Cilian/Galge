@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.SyncStatusObserver;
 import android.graphics.Color;
 import android.icu.text.SymbolTable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -51,6 +52,20 @@ public class Highscore extends Activity {
                 return Integer.valueOf(o2.getScore()).compareTo(o1.getScore());
             }
         });
+        for(int i = 0; i < users.size(); i++){
+            if(i == 0){
+                users.get(i).setMedal(ContextCompat.getDrawable(this, R.drawable.medal2));
+            }
+            else if(i == 1){
+                users.get(i).setMedal(ContextCompat.getDrawable(this, R.drawable.medal9));
+            }
+            else if(i == 2){
+                users.get(i).setMedal(ContextCompat.getDrawable(this, R.drawable.medal10));
+            }
+            else if(i > 2){
+                users.get(i).setMedal(ContextCompat.getDrawable(this, R.drawable.medal7));
+            }
+        }
 
 
         UserListAdapter adapter = new UserListAdapter(this, R.layout.listelements, users);
