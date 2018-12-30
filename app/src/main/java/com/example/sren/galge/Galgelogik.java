@@ -35,6 +35,10 @@ public class Galgelogik {
     return ordet;
   }
 
+  public void setOrdet(String ordet) {
+    this.ordet = ordet;
+  }
+
   public int getAntalForkerteBogstaver() {
     return antalForkerteBogstaver;
   }
@@ -68,15 +72,19 @@ public class Galgelogik {
     muligeOrd.add("seksten");
     muligeOrd.add("sytten");
     muligeOrd.add("atten");
-    nulstil();
+    nulstil(null);
   }
 
-  public void nulstil() {
+  public void nulstil(String chosenWord) {
     brugteBogstaver.clear();
     antalForkerteBogstaver = 0;
     spilletErVundet = false;
     spilletErTabt = false;
-    ordet = muligeOrd.get(new Random().nextInt(muligeOrd.size()));
+    if(chosenWord == null) {
+        ordet = muligeOrd.get(new Random().nextInt(muligeOrd.size()));
+    } else {
+        ordet = chosenWord;
+    }
     opdaterSynligtOrd();
   }
 
@@ -103,7 +111,7 @@ public class Galgelogik {
 
     brugteBogstaver.add(bogstav);
 
-    if (ordet.contains(bogstav)) {
+    if (getOrdet().contains(bogstav)) {
       sidsteBogstavVarKorrekt = true;
       System.out.println("Bogstavet var korrekt: " + bogstav);
       point += 100;
@@ -121,7 +129,7 @@ public class Galgelogik {
 
   public void logStatus() {
     System.out.println("---------- ");
-    System.out.println("- ordet (skult) = " + ordet);
+    System.out.println("- ordet (skult) = " + getOrdet());
     System.out.println("- synligtOrd = " + synligtOrd);
     System.out.println("- forkerteBogstaver = " + antalForkerteBogstaver);
     System.out.println("- brugeBogstaver = " + brugteBogstaver);
@@ -166,7 +174,7 @@ public class Galgelogik {
     muligeOrd.addAll(new HashSet<String>(Arrays.asList(data.split(" "))));
 
     System.out.println("muligeOrd = " + muligeOrd);
-    nulstil();
+    nulstil(null);
   }
 
   public int getPoint() {

@@ -2,7 +2,10 @@ package com.example.sren.galge;
 
 import android.app.Activity;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -22,12 +25,13 @@ public class MenuActivity extends Activity implements View.OnClickListener{
     Button option, start, highscore,custom;
     TextView galge1,galge2,leg1,leg2, preparing, wait;
     ProgressBar progressBar;
-
     Integer count =1;
+    int checker = 0;
 
      ScaleAnimation growAnim = new ScaleAnimation(1.0f, 1.08f, 1.0f, 1.08f, Animation.RELATIVE_TO_SELF, 0.5F, Animation.RELATIVE_TO_SELF, 0.5F);
      ScaleAnimation shrinkAnim = new ScaleAnimation(1.08f, 1.0f, 1.08f, 1.0f, Animation.RELATIVE_TO_SELF, 0.5F, Animation.RELATIVE_TO_SELF, 0.5F);
 
+    MediaPlayer music = new MediaPlayer();
 
 
 @Override
@@ -38,8 +42,15 @@ protected void onCreate(Bundle savedInstanceState){
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
+        System.out.println(music.isPlaying());
+        if(checker == 0) {
+            setMusic(MediaPlayer.create(this, R.raw.the_organ));
+            checker = 1;
+        }
+
+    System.out.println("after " + music.isPlaying());
         final FragmentManager fm = getFragmentManager();
-        final PropFragment n = new PropFragment();
+         final PropFragment n = new PropFragment();
 
         progressBar = findViewById(R.id.progressBar);
 
@@ -68,11 +79,8 @@ protected void onCreate(Bundle savedInstanceState){
         leg1 = findViewById(R.id.leg1);
         leg2 = findViewById(R.id.leg2);
 
-
     growAnim.setDuration(1500);
     shrinkAnim.setDuration(1500);
-
-   // Animation grow = AnimationUtils.loadAnimation(this, R.anim.scale);
 
     galge1.setAnimation(growAnim);
     galge2.setAnimation(growAnim);
@@ -134,13 +142,6 @@ public void onClick(View v){
         public void openCustom() {
             Intent intent = new Intent(this, ListOfWordsFragment.class);
             startActivity(intent);
-  /*          ListOfWordsFragment frag = new ListOfWordsFragment();
-
-            FragmentManager fragmentManager = getFragmentManager();
-            android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-            fragmentTransaction.add(R.id.games_layout, frag);
-            fragmentTransaction.commit();*/
         }
 
         public void openScores(){
@@ -191,6 +192,17 @@ public void onClick(View v){
             progressBar.setProgress(values[0]);
         }
     }
+
+    public MediaPlayer getMusic() {
+        return music;
+    }
+
+    public void setMusic(MediaPlayer music) {
+        music.setLooping(true);
+        this.music = music;
+        music.start();
+    }
+
 
     @Override
     public void onBackPressed() {

@@ -38,6 +38,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     TextView myScore;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +47,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
-        spil.nulstil();
+
+
+        String chosenWord = getIntent().getStringExtra("word");
+
+        spil.nulstil(chosenWord);
+        System.out.println(chosenWord);
+
 
         word = findViewById(R.id.word);
         word.setText(spil.getSynligtOrd());
@@ -157,4 +164,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(new Intent(this, MenuActivity.class));
     }
 
+    public void setArguments(Bundle bundle) {
+    }
 }

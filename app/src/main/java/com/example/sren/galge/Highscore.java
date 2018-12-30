@@ -72,7 +72,6 @@ public class Highscore extends Activity {
         scores.setAdapter(adapter);
     }
 
-
     public void loadUser(){
         SharedPreferences sharedPreferences = getSharedPreferences("highscore", MODE_PRIVATE);
         String text = sharedPreferences.getString("U",null);

@@ -7,7 +7,7 @@ public class BenytGalgelogik {
   public static void main(String[] args) {
 
     Galgelogik spil = new Galgelogik();
-    spil.nulstil();
+    spil.nulstil(null);
 
     try {
       spil.hentOrdFraDr();
