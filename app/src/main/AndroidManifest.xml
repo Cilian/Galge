@@ -3,6 +3,7 @@
     package="com.example.sren.galge">
 
     <application
+        android:name=".Music"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -18,7 +19,8 @@
         </activity>
         <activity android:name=".GameActivity" />
         <activity android:name=".Highscore" />
-        <activity android:name=".ListOfWordsFragment"></activity>
+        <activity android:name=".ListOfWords" />
+        <activity android:name=".MusicActivity"></activity>
     </application>
 
 </manifest>

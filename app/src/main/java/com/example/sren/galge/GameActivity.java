@@ -3,6 +3,7 @@ package com.example.sren.galge;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
@@ -36,8 +37,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     ImageView fail,fail1,fail2,fail3,fail4,fail5,fail6;
     TableLayout buttons;
     TextView myScore;
-
-
+    MediaPlayer gameMusic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +45,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         this.requestWindowFeature(FEATURE_NO_TITLE);
         setContentView(R.layout.activity_game);
 
+        gameMusic = ((Music) this.getApplicationContext()).getMusic();
+        gameMusic.setLooping(true);
+        gameMusic.start();
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-
-
 
         String chosenWord = getIntent().getStringExtra("word");
 
@@ -157,11 +159,14 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onBackPressed() {
         if (getFragmentManager().getBackStackEntryCount() > 0) {
+            gameMusic.stop();
             getFragmentManager().popBackStack();
         } else {
+            gameMusic.stop();
             super.onBackPressed();
         }
         startActivity(new Intent(this, MenuActivity.class));
+        gameMusic.stop();
     }
 
     public void setArguments(Bundle bundle) {

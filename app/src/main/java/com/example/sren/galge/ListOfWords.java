@@ -12,7 +12,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
-public class ListOfWordsFragment extends Activity {
+public class ListOfWords extends Activity {
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 1;

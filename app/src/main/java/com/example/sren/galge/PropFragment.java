@@ -41,7 +41,7 @@ public class PropFragment extends DialogFragment implements OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if(v == music){
+    /*    if(v == music){
             ((MenuActivity)getActivity()).music.stop();
             ((MenuActivity)getActivity()).setMusic(MediaPlayer.create(getActivity(), R.raw.unlive));
         }
@@ -56,6 +56,6 @@ public class PropFragment extends DialogFragment implements OnClickListener {
         else if(v == music3){
             ((MenuActivity)getActivity()).music.stop();
            ((MenuActivity)getActivity()).setMusic(MediaPlayer.create(getActivity(), R.raw.the_organ));
-        }
+        }*/
     }
 }

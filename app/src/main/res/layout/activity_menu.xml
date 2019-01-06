@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:background="@drawable/roundcorners_white"
-        android:text="Indstillinger"
+        android:text="Musik"
         android:textColor="#E5E2E2"
         android:textStyle="bold"
         android:visibility="visible"

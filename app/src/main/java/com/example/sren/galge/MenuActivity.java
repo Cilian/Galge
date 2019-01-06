@@ -1,15 +1,10 @@
 package com.example.sren.galge;
 
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.content.Context;
 import android.content.Intent;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -22,17 +17,15 @@ import static android.view.Window.FEATURE_NO_TITLE;
 
 public class MenuActivity extends Activity implements View.OnClickListener{
 
-    Button option, start, highscore,custom;
+    Button music, start, highscore,custom;
     TextView galge1,galge2,leg1,leg2, preparing, wait;
     ProgressBar progressBar;
     Integer count =1;
-    int checker = 0;
+    MediaPlayer mus;
+
 
      ScaleAnimation growAnim = new ScaleAnimation(1.0f, 1.08f, 1.0f, 1.08f, Animation.RELATIVE_TO_SELF, 0.5F, Animation.RELATIVE_TO_SELF, 0.5F);
      ScaleAnimation shrinkAnim = new ScaleAnimation(1.08f, 1.0f, 1.08f, 1.0f, Animation.RELATIVE_TO_SELF, 0.5F, Animation.RELATIVE_TO_SELF, 0.5F);
-
-    MediaPlayer music = new MediaPlayer();
-
 
 @Override
 protected void onCreate(Bundle savedInstanceState){
@@ -42,15 +35,13 @@ protected void onCreate(Bundle savedInstanceState){
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
-        System.out.println(music.isPlaying());
-        if(checker == 0) {
-            setMusic(MediaPlayer.create(this, R.raw.the_organ));
-            checker = 1;
+        if(((Music) this.getApplication()).getMusic() == null) {
+        ((Music) this.getApplication()).setMusic(MediaPlayer.create(this, R.raw.unlive));
+        } else {
+            mus = ((Music) this.getApplication()).getMusic();
+            mus.start();
         }
 
-    System.out.println("after " + music.isPlaying());
-        final FragmentManager fm = getFragmentManager();
-         final PropFragment n = new PropFragment();
 
         progressBar = findViewById(R.id.progressBar);
 
@@ -60,13 +51,9 @@ protected void onCreate(Bundle savedInstanceState){
         start = findViewById(R.id.start);
         start.setOnClickListener(this);
 
-        option = findViewById(R.id.options);
-        option.setOnClickListener(new View.OnClickListener(){
-        @Override
-        public void onClick(View v){
-            n.show(fm,"Indstillinger");
-        }
-    });
+        music = findViewById(R.id.options);
+        music.setOnClickListener(this);
+
 
         highscore = findViewById(R.id.highscore);
         highscore.setOnClickListener(this);
@@ -137,10 +124,18 @@ public void onClick(View v){
         if(v == custom){
             openCustom();
         }
+        if(v == music){
+            openMusic();
+        }
 }
 
+    public void openMusic() {
+        Intent intent = new Intent(this, MusicActivity.class);
+        startActivity(intent);
+    }
+
         public void openCustom() {
-            Intent intent = new Intent(this, ListOfWordsFragment.class);
+            Intent intent = new Intent(this, ListOfWords.class);
             startActivity(intent);
         }
 
@@ -150,9 +145,10 @@ public void onClick(View v){
         }
 
         public void openLoading(){
-            option.setVisibility(View.INVISIBLE);
+            music.setVisibility(View.INVISIBLE);
             highscore.setVisibility(View.INVISIBLE);
             start.setVisibility(View.INVISIBLE);
+            custom.setVisibility(View.INVISIBLE);
 
             wait.setVisibility(View.VISIBLE);
             preparing.setVisibility(View.VISIBLE);
@@ -191,16 +187,6 @@ public void onClick(View v){
         protected void onProgressUpdate(Integer... values) {
             progressBar.setProgress(values[0]);
         }
-    }
-
-    public MediaPlayer getMusic() {
-        return music;
-    }
-
-    public void setMusic(MediaPlayer music) {
-        music.setLooping(true);
-        this.music = music;
-        music.start();
     }
 
 

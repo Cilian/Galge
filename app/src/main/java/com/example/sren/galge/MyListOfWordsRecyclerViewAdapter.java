@@ -34,7 +34,6 @@ public class MyListOfWordsRecyclerViewAdapter extends ArrayAdapter<Words> {
     @Override
     public View getView(int position, View convertView,  ViewGroup parent) {
         String word = getItem(position).getWords();
-
        // Words wrd = new Words(word);
 
         LayoutInflater inflater = LayoutInflater.from(mcontext);
