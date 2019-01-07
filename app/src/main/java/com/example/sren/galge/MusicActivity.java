@@ -15,7 +15,6 @@ public class MusicActivity extends Activity implements View.OnClickListener {
     public MediaPlayer music = new MediaPlayer();
     ToggleButton music1, music2, music3, music4;
     ImageView playBtn, pauseBtn;
-    MediaPlayer gameMusic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

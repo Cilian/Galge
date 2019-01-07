@@ -142,13 +142,16 @@ public class Galgelogik {
   public static String hentUrl(String url) throws IOException {
     System.out.println("Henter data fra " + url);
     BufferedReader br = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
+      System.out.println("buffer");
     StringBuilder sb = new StringBuilder();
+      System.out.println("builder");
     String linje = br.readLine();
     while (linje != null) {
       sb.append(linje + "\n");
       linje = br.readLine();
+      System.out.println("indeIURL");
     }
-    return sb.toString();
+    return "Du får returneret: " + sb.toString();
   }
 
 
