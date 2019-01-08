@@ -149,9 +149,8 @@ public class Galgelogik {
     while (linje != null) {
       sb.append(linje + "\n");
       linje = br.readLine();
-      System.out.println("indeIURL");
     }
-    return "Du får returneret: " + sb.toString();
+    return sb.toString();
   }
 
 

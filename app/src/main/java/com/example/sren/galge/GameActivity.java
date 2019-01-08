@@ -45,7 +45,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         this.requestWindowFeature(FEATURE_NO_TITLE);
         setContentView(R.layout.activity_game);
 
-        gameMusic = ((Music) this.getApplicationContext()).getMusic();
+        gameMusic = MediaPlayer.create(this, R.raw.unlive);
         gameMusic.setLooping(true);
         gameMusic.start();
 
@@ -103,7 +103,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             LoserFragment fragment = new LoserFragment();
             fragment.setArguments(bundle);
             animationFragment(fragment);
-
         }
     }
 
@@ -159,16 +158,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onBackPressed() {
         if (getFragmentManager().getBackStackEntryCount() > 0) {
-            gameMusic.stop();
             getFragmentManager().popBackStack();
         } else {
-            gameMusic.stop();
             super.onBackPressed();
         }
-        startActivity(new Intent(this, MenuActivity.class));
         gameMusic.stop();
-    }
-
-    public void setArguments(Bundle bundle) {
+        finish();
+        startActivity(new Intent(this, MenuActivity.class));
     }
 }

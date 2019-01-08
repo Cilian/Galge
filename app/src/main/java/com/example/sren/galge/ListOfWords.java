@@ -9,10 +9,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 
 public class ListOfWords extends Activity implements View.OnClickListener {
@@ -23,6 +27,10 @@ public class ListOfWords extends Activity implements View.OnClickListener {
     ListView list;
     Button dr;
     Galgelogik logik = new Galgelogik();
+    String chosenWord;
+    int count;
+    ProgressBar progressBar;
+    TextView preparing, wait,txt;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,6 +38,13 @@ public class ListOfWords extends Activity implements View.OnClickListener {
         setContentView(R.layout.fragment_listofwords_list);
 
         list = findViewById(R.id.list);
+        progressBar = findViewById(R.id.progressBar);
+        preparing = findViewById(R.id.preparing);
+        wait = findViewById(R.id.wait);
+        txt = findViewById(R.id.txt);
+
+        dr = findViewById(R.id.dr);
+        dr.setOnClickListener(this);
 
         words.add(new Words("bil"));
         words.add(new Words("computer"));
@@ -43,10 +58,6 @@ public class ListOfWords extends Activity implements View.OnClickListener {
         words.add(new Words("sytten"));
         words.add(new Words("atten"));
 
-        //RecyclerView recyclerView = (RecyclerView) ;
-
-        dr = findViewById(R.id.dr);
-        dr.setOnClickListener(this);
 
         list.setAdapter(new MyListOfWordsRecyclerViewAdapter(this, R.layout.fragment_listofwords, words));
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -60,44 +71,58 @@ public class ListOfWords extends Activity implements View.OnClickListener {
                 startActivity(intent);
             }
         });
-
     }
-
 
     @Override
     public void onClick(View v) {
         if (v == dr) {
             System.out.println("Du trykkede på dr");
-            new CallDr();
+            dr.setVisibility(View.GONE);
+            list.setVisibility(View.GONE);
+            txt.setVisibility(View.GONE);
+
+            wait.setVisibility(View.VISIBLE);
+            preparing.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.VISIBLE);
+            new wordsFromDR().execute(25);
         }
     }
-        class CallDr extends AsyncTask<URL, Void, String> {
-            @Override
-            protected String doInBackground(URL... url) {
+
+    private class wordsFromDR extends AsyncTask<Integer, Integer, String> {
+        @Override
+        protected String doInBackground(Integer... params) {
                 try {
-                    Intent intent = new Intent(getBaseContext(), GameActivity.class);
-                    startActivity(intent);
-                    // logik.hentOrdFraDr();
-
-                } catch (Exception e1) {
-                    e1.printStackTrace();
+                    logik.hentOrdFraDr();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                return "Task Completed.";
+            for (; count <= params[0]; count++) {
+                try {
+                    Thread.sleep(40);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                publishProgress(count);
             }
+            return "Task Completed.";
+        }
 
-            protected void onPostExecute(String result) {
-                return ;
+        @Override
+        protected void onPreExecute() {
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            progressBar.setVisibility(View.GONE);
+            chosenWord = logik.muligeOrd.get(new Random().nextInt(logik.muligeOrd.size()));
+            Intent intent = new Intent(getBaseContext(), GameActivity.class);
+            intent.putExtra("word", chosenWord);
+            startActivity(intent);
+        }
+            @Override
+            protected void onProgressUpdate(Integer... values) {
+                progressBar.setProgress(values[0]);
             }
-
-/*            try {
-                logik.hentOrdFraDr();
-                Intent intent = new Intent(getBaseContext(),GameActivity.class);
-                startActivity(intent);
-            } catch (Exception e) {
-                e.printStackTrace();
-                Intent intent = new Intent(getBaseContext(), MenuActivity.class);
-                startActivity(intent);
-            }*/
-
     }
+
 }
