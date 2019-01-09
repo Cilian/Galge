@@ -41,7 +41,6 @@ public class Restart extends Fragment {
         View rootView=inflater.inflate(R.layout.fragment_restart,container,false);
 
         final GameActivity activity = (GameActivity) getActivity();
-        Boolean winner = activity.getWinner();
 
         msg = rootView.findViewById(R.id.msg);
         name = rootView.findViewById(R.id.name);
@@ -53,13 +52,6 @@ public class Restart extends Fragment {
 
         finalScore.setText(score);
         fejl.setText(antal_fejl);
-
-
-        SharedPreferences pref = getActivity().getApplicationContext().getSharedPreferences("Highscores", 0); // 0 - for private mode
-        SharedPreferences.Editor editor = pref.edit();
-
-//        editor.putInt("currentScore", activity.spil.getPoint()).commit();
-
 
         restart = rootView.findViewById(R.id.restart);
         restart.setOnClickListener(new View.OnClickListener() {

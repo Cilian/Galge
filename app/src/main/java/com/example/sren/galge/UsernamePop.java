@@ -28,7 +28,6 @@ public class UsernamePop extends Fragment implements View.OnClickListener {
         send.setOnClickListener(this);
 
         return rootView;
-
     }
 
 
@@ -43,10 +42,6 @@ public class UsernamePop extends Fragment implements View.OnClickListener {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.setCustomAnimations(R.anim.slide_down_in, R.anim.slide_up_out);
             getActivity().onBackPressed();
-
-
         }
     }
-
-
 }

@@ -33,16 +33,6 @@ protected void onCreate(Bundle savedInstanceState){
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
-/*        if(((Music) this.getApplication()).getMusic() == null) {
-        ((Music) this.getApplication()).setMusic(MediaPlayer.create(this, R.raw.unlive));
-        } else {
-            mus = ((Music) this.getApplication()).getMusic();
-            mus.start();
-        }*/
-
-
-
-
         start = findViewById(R.id.start);
         start.setOnClickListener(this);
 
@@ -111,7 +101,7 @@ protected void onCreate(Bundle savedInstanceState){
 @Override
 public void onClick(View v){
         if(v==start){
-            openLoading();
+            openGame();
         }
         if(v == highscore){
             openScores();
@@ -139,26 +129,11 @@ public void onClick(View v){
             startActivity(intent);
         }
 
-        public void openLoading(){
-       /*     music.setVisibility(View.INVISIBLE);
-            highscore.setVisibility(View.INVISIBLE);
-            start.setVisibility(View.INVISIBLE);
-            custom.setVisibility(View.INVISIBLE);*/
-
-/*            wait.setVisibility(View.VISIBLE);
-            preparing.setVisibility(View.VISIBLE);
-            progressBar.setVisibility(View.VISIBLE);*/
-            openGame();
-        }
-
     public void openGame(){
         Intent intent = new Intent(this,GameActivity.class);
         startActivity(intent);
       //  finish();
     }
-
-
-
 
     @Override
     public void onBackPressed() {
